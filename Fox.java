@@ -68,6 +68,7 @@ public class Fox extends Animal{
             cellToMoveTo.setAnimal(this);
         }
     }
+
     //setters and getters 
     public int getStepsSinceLastEaten() {
         return stepsSinceLastEaten;
@@ -78,4 +79,8 @@ public class Fox extends Animal{
     }
     
     //toString
+    @Override
+    public String toString(){
+        return "X";
+    }
 }

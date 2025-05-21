@@ -10,37 +10,9 @@ public class Grid {
 
     //constructor
     public Grid() {
-        for (int xAxisValue = 0; xAxisValue < SIZE; xAxisValue++) {
-
-            for (int yAxisValue = 0; yAxisValue < SIZE; yAxisValue++) {
-
-                //Cell cell = new Cell();
-                Cell cell = new Cell(xAxisValue, yAxisValue);
-
-                int firstRow = 0;
-                int lastRow = SIZE - 1;
-                int firstColumn = 0;
-                int lastColumn = SIZE - 1;
-
-                if (xAxisValue != firstRow) {
-                    cell.addNeighbor(array[xAxisValue - 1][yAxisValue]);
-                }
-
-                if (yAxisValue != firstColumn) {
-                    cell.addNeighbor(array[xAxisValue][yAxisValue - 1]);
-                }
-
-                if (yAxisValue != lastColumn) {
-                    cell.addNeighbor(array[xAxisValue][yAxisValue + 1]);
-                }
-
-                if (xAxisValue != lastRow) {
-                    cell.addNeighbor(array[xAxisValue + 1][yAxisValue]);
-                }
-
-                array[xAxisValue][yAxisValue] = cell;
-            }
-        }
+        
+        createGrid();
+        addNeighborsToEachCell();
     }
 
     //methods
@@ -70,7 +42,53 @@ public class Grid {
     }
     
     //helper methods
+    private void createGrid(){
+        for (int row = 0; row < SIZE; row++){
 
+            for (int column = 0; column < SIZE; column++){
+
+                Cell cell = new Cell(row, column);
+                array[row][column] = cell;
+            }
+        }
+    }
+
+    public void addNeighborsToEachCell(){
+        for (int row = 0; row < SIZE; row++){
+
+            for (int column = 0; column < SIZE; column++){
+
+                Cell cell = this.array[row][column];
+
+                int firstRow = 0;
+                int lastRow = SIZE - 1;
+                int firstColumn = 0;
+                int lastColumn = SIZE - 1;
+
+                if (row != firstRow) {
+                    cell.addNeighbor(array[row - 1][column]);
+                }
+
+                if (column != firstColumn) {
+                    cell.addNeighbor(array[row][column - 1]);
+                }
+
+                if (column != lastColumn) {
+                    cell.addNeighbor(array[row][column + 1]);
+                }
+
+                if (row != lastRow) {
+                    cell.addNeighbor(array[row + 1][column]);
+                }
+            }
+        }
+    }
+    private void addAnimalInFixedSpot(Animal animal, int row, int column){
+        Cell selectedCell = this.array[row][column];
+
+        selectedCell.setAnimal(animal);
+        animal.setCell(selectedCell);
+    }
     //setters and getters
     public Cell[][] getArray() {
         return array;
@@ -99,37 +117,20 @@ public class Grid {
     public static void main(String[] args) {
         Grid grid = new Grid();
 
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
-        grid.addAnimal(new Fox());
+        Rabbit rabbit = new Rabbit();
+        grid.addAnimalInFixedSpot(rabbit, 1, 1);
 
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
-        grid.addAnimal(new Rabbit());
+        grid.addAnimalInFixedSpot(new Rabbit(), 1, 2);
+        grid.addAnimalInFixedSpot(new Rabbit(), 1, 0);
+        grid.addAnimalInFixedSpot(new Rabbit(), 0, 1);
 
         System.out.println(grid.toString());
+
+        for (int i = 0; i < 3; i++){
+            rabbit.move();
+            System.out.println(grid.toString());
+        }
+        
+        
     }
 }

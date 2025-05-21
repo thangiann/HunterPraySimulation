@@ -8,17 +8,17 @@ public class Cell {
     private Animal animal;
 
     //only for debugging
-    private int xAxisValue;
-    private int yAxisValue;
+    private int row;
+    private int column;
 
     //constructors
     public Cell(){
         this.neighbors = new ArrayList<>();
     }
 
-    public Cell(int xAxisValue, int yAxisValue){
-        this.xAxisValue = xAxisValue;
-        this.yAxisValue =  yAxisValue;
+    public Cell(int row, int column){
+        this.row = row;
+        this.column =  column;
         this.neighbors = new ArrayList<>();
     }
 
@@ -31,7 +31,7 @@ public class Cell {
         Collections.shuffle(neighbors);
 
         for (Cell cell:neighbors){
-            if (cell != null && !cell.isEmpty() ){
+            if (cell != null && cell.isEmpty() ){
                 return cell;
             }
         }
@@ -64,16 +64,17 @@ public class Cell {
     }
 
     //helper methods
-    private void printCoordiantes(){
-        System.out.println("x axis value: " + this.xAxisValue);
-        System.out.println("y axis value: " + this.yAxisValue);
+    public void printCoordiantes(){
+        System.out.println("row: " + this.row);
+        System.out.println("column: " + this.column);
     }
 
-    private void printNeighbors(){
+    public void printNeighbors(){
         for (Cell cell:this.neighbors){
             if (cell != null) {
                 System.out.println(cell.toString());
             }
+            
         }
     }
 
@@ -99,22 +100,7 @@ public class Cell {
         this.animal = animal;
     }   
 
-    public int getXAxisValue() {
-        return xAxisValue;
-    }
 
-    public void setXAxisValue(int xAxisValue) {
-        this.xAxisValue = xAxisValue;
-    }
-
-
-    public int getYAxisValue() {
-        return yAxisValue;
-    }
-
-    public void setYAxisValue(int yAxisValue) {
-        this.yAxisValue = yAxisValue;
-    }
 
     //toString
     @Override
