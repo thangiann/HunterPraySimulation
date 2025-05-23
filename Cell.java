@@ -60,7 +60,10 @@ public class Cell {
     }
 
     public boolean containsRabbit(){
-        return this.animal.isRabbit();
+        if (this.animal != null) {
+            return this.animal.isRabbit();
+        }
+        else {return false;}
     }
 
     //helper methods

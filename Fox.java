@@ -54,6 +54,10 @@ public class Fox extends Animal{
         animalEaten.die();
         stepsSinceLastEaten = 0;
 
+        this.getCell().setAnimal(null);
+        this.setCell(cellToEatFrom); 
+        cellToEatFrom.setAnimal(this);
+
         return animalEaten;
     }
 

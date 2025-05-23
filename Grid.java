@@ -83,12 +83,14 @@ public class Grid {
             }
         }
     }
+
     private void addAnimalInFixedSpot(Animal animal, int row, int column){
         Cell selectedCell = this.array[row][column];
 
         selectedCell.setAnimal(animal);
         animal.setCell(selectedCell);
     }
+    
     //setters and getters
     public Cell[][] getArray() {
         return array;
@@ -106,7 +108,7 @@ public class Grid {
         for (int i = 0; i < 20; i++){
 
             for (int j = 0; j < 20; j++){
-                sb.append(array[i][j].toString());
+                sb.append(array[i][j].toString() + " ");
             }
             sb.append("\n");
         }
@@ -117,17 +119,20 @@ public class Grid {
     public static void main(String[] args) {
         Grid grid = new Grid();
 
-        Rabbit rabbit = new Rabbit();
-        grid.addAnimalInFixedSpot(rabbit, 1, 1);
+        Fox fox = new Fox();
+        grid.addAnimalInFixedSpot(fox, 1, 1);
 
         grid.addAnimalInFixedSpot(new Rabbit(), 1, 2);
-        grid.addAnimalInFixedSpot(new Rabbit(), 1, 0);
-        grid.addAnimalInFixedSpot(new Rabbit(), 0, 1);
+        //grid.addAnimalInFixedSpot(new Fox(), 1, 2);
+        //grid.addAnimalInFixedSpot(new Rabbit(), 1, 0);
+        //grid.addAnimalInFixedSpot(new Fox(), 1, 0);
+        //grid.addAnimalInFixedSpot(new Rabbit(), 0, 1);
+        //grid.addAnimalInFixedSpot(new Fox(), 0, 1);
 
         System.out.println(grid.toString());
 
-        for (int i = 0; i < 3; i++){
-            rabbit.move();
+        for (int i = 0; i < 4; i++){
+            fox.move();
             System.out.println(grid.toString());
         }
         
