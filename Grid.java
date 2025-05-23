@@ -23,12 +23,12 @@ public class Grid {
 
         while (emptyCell) {
 
-            int xAxisValue = random.nextInt(SIZE);
-            int yAxisValue = random.nextInt(SIZE);
+            int row = random.nextInt(SIZE);
+            int column = random.nextInt(SIZE);
 
-            Cell selectedCell = array[xAxisValue][yAxisValue];
+            Cell selectedCell = array[row][column];
 
-            selectedCell.printCellInformation();
+            //selectedCell.printCellInformation();
 
             if (selectedCell.isEmpty()){
 

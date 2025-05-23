@@ -67,7 +67,7 @@ public class Fox extends Animal{
 
         if (cellToMoveTo != null) {
             
-            this.getCell().setAnimal(null);
+            this.getCell().setAnimal(this);
             this.setCell(cellToMoveTo); 
             cellToMoveTo.setAnimal(this);
         }
