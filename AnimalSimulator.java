@@ -43,12 +43,17 @@ public class AnimalSimulator {
 
         for (Animal animal:iterableAnimalList){
             
+            if (animal.getCell() == null) {
+                System.out.println(animal.getClass());
+            }
+
             if (theAnimalIsAlive(animal)) {
                 Animal animalEatenOrDead = animal.move();
             
                 if (animalEatenOrDead != null) {
                 
                     this.animals.remove(animalEatenOrDead);
+                    continue;
                 }
 
                 if (animal.breedingTime(timeStep)) {
@@ -97,7 +102,7 @@ public class AnimalSimulator {
         System.out.println(grid.toString());
         as.printPopulations();
 
-        as.moveAndBreedAnimals(3);
+        as.moveAndBreedAnimals(0);
         System.out.println(grid.toString());
         as.printPopulations();
 

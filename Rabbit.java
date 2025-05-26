@@ -10,7 +10,7 @@ public class Rabbit extends Animal {
     }
 
     public boolean breedingTime(int steps){
-        return steps == 3;
+        return steps % 3 == 0;
     }
 
     public Animal giveBirth(){

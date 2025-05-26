@@ -14,7 +14,7 @@ public class Fox extends Animal{
     }
 
     public boolean breedingTime(int steps){
-        return steps == 8;
+        return steps % 8 == 0;
     }
 
     public Fox giveBirth(){
