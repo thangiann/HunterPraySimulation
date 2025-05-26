@@ -122,7 +122,7 @@ public class Grid {
         Fox fox = new Fox();
         grid.addAnimalInFixedSpot(fox, 1, 1);
 
-        grid.addAnimalInFixedSpot(new Rabbit(), 1, 2);
+        //grid.addAnimalInFixedSpot(new Rabbit(), 1, 2);
         //grid.addAnimalInFixedSpot(new Fox(), 1, 2);
         //grid.addAnimalInFixedSpot(new Rabbit(), 1, 0);
         //grid.addAnimalInFixedSpot(new Fox(), 1, 0);

@@ -16,6 +16,7 @@ public abstract class Animal {
     //methods
     public void die(){
         this.cell.setAnimal(null);
+        this.cell = null;
     }
 
     public Animal move(){

@@ -26,15 +26,17 @@ public class Fox extends Animal{
     public Animal move(){
         
         Cell cellToEatFrom = this.getCell().getRandomRabbitNeighbor();
-
+        
         if (cellToEatFrom != null) {
             
+            System.out.println("eaten");
             return foxEatAnimal(cellToEatFrom);
         }
         
         stepsSinceLastEaten++;
 
         boolean foxDies = stepsSinceLastEaten == 3;
+        
         if (foxDies) {
             this.die();
 
@@ -67,7 +69,7 @@ public class Fox extends Animal{
 
         if (cellToMoveTo != null) {
             
-            this.getCell().setAnimal(this);
+            this.getCell().setAnimal(null);
             this.setCell(cellToMoveTo); 
             cellToMoveTo.setAnimal(this);
         }

@@ -88,7 +88,7 @@ public class Cell {
 
     //setters and getters
     public ArrayList<Cell> getNeighbors() {
-    return neighbors;
+        return neighbors;
     }
 
     public void setNeighbors(ArrayList<Cell> neighbors) {

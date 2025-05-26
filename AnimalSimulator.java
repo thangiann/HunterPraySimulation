@@ -42,11 +42,47 @@ public class AnimalSimulator {
         Collections.shuffle(iterableAnimalList);
 
         for (Animal animal:iterableAnimalList){
-            animal.move();
+            
+            if (theAnimalIsAlive(animal)) {
+                Animal animalEatenOrDead = animal.move();
+            
+                if (animalEatenOrDead != null) {
+                
+                    this.animals.remove(animalEatenOrDead);
+                }
+
+                if (animal.breedingTime(timeStep)) {
+                    
+                    Animal animalBirthed = animal.breed(timeStep);
+
+                    if (animalBirthed != null) {
+                        this.animals.add(animalBirthed);
+                    }
+                }
+            }
         }       
     }
 
+    public void printPopulations(){
+        
+        int foxNumber = 0;
+        int rabbitNumber = 0;
+
+        for (Animal animal:animals){
+
+            if (animal.isRabbit()) {
+                rabbitNumber ++;
+            }
+            else { foxNumber++;}
+        }
+
+        System.out.println(rabbitNumber + " rabbits and " + foxNumber + " foxes"); 
+    }
+
     //helper methods
+    private boolean theAnimalIsAlive(Animal animal){
+        return animals.contains(animal);
+    }
 
     //setters and getters
 
@@ -59,9 +95,11 @@ public class AnimalSimulator {
         as.populate(grid);
 
         System.out.println(grid.toString());
+        as.printPopulations();
 
-        as.moveAndBreedAnimals(0);
+        as.moveAndBreedAnimals(3);
         System.out.println(grid.toString());
+        as.printPopulations();
 
     }
 }
