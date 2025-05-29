@@ -29,7 +29,6 @@ public class Fox extends Animal{
         
         if (cellToEatFrom != null) {
             
-            System.out.println("eaten");
             return foxEatAnimal(cellToEatFrom);
         }
         

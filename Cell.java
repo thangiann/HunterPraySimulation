@@ -103,8 +103,6 @@ public class Cell {
         this.animal = animal;
     }   
 
-
-
     //toString
     @Override
     public String toString(){

@@ -26,7 +26,6 @@ public abstract class Animal {
             this.cell.setAnimal(null);
             this.cell = cellToMoveTo;
             cellToMoveTo.setAnimal(this);
-            //cellToMoveTo.printCoordiantes();
         }
 
         return null;

@@ -42,10 +42,6 @@ public class AnimalSimulator {
         Collections.shuffle(iterableAnimalList);
 
         for (Animal animal:iterableAnimalList){
-            
-            if (animal.getCell() == null) {
-                System.out.println(animal.getClass());
-            }
 
             if (theAnimalIsAlive(animal)) {
                 Animal animalEatenOrDead = animal.move();
@@ -53,10 +49,9 @@ public class AnimalSimulator {
                 if (animalEatenOrDead != null) {
                 
                     this.animals.remove(animalEatenOrDead);
-                    continue;
                 }
 
-                if (animal.breedingTime(timeStep)) {
+                if (animal.breedingTime(timeStep) && theAnimalIsAlive(animal)) {
                     
                     Animal animalBirthed = animal.breed(timeStep);
 
@@ -102,7 +97,11 @@ public class AnimalSimulator {
         System.out.println(grid.toString());
         as.printPopulations();
 
-        as.moveAndBreedAnimals(0);
+        as.moveAndBreedAnimals(8);
+        System.out.println(grid.toString());
+        as.printPopulations();
+
+        as.moveAndBreedAnimals(3);
         System.out.println(grid.toString());
         as.printPopulations();
 
