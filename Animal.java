@@ -1,4 +1,4 @@
-
+// Athanasios Giannopoulos AM 5672
 public abstract class Animal {
     
     //fields

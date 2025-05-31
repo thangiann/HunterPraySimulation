@@ -1,3 +1,4 @@
+// Athanasios Giannopoulos AM 5672
 public class Rabbit extends Animal {
     
     //fields

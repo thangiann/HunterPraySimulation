@@ -1,3 +1,4 @@
+// Athanasios Giannopoulos AM 5672
 import java.util.Random;
 
 public class Grid {

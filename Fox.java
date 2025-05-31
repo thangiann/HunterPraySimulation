@@ -1,3 +1,4 @@
+// Athanasios Giannopoulos AM 5672
 public class Fox extends Animal{
     
     //fields
